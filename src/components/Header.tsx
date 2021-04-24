@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
 import { View, Text, StyleSheet, Image ,SafeAreaView} from 'react-native';
 import colors from '../styles/colors';
 import userImg from '../assets/profilePic.png'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 interface HeaderProps {
     name: string,
 }
-export const Header = ({name}: HeaderProps)=> {
+export const Header = ()=> {
+    const [user, setUsername ] = useState<string>('')
+
+    useEffect(()=>{
+        async function loadAsyncStorageData(){
+            const data = await AsyncStorage.getItem('@plantmanager:user')
+            setUsername(data || '')
+        }
+        loadAsyncStorageData()
+    })
     return(
         <View style={styles.container}>
             <View>
                 <Text style={styles.greeting}>Olá,</Text>
-                <Text style={styles.userName}>{name}</Text>
+                <Text style={styles.userName}>{user}</Text>
             </View>
             <Image  source={userImg} style={styles.image}/>
         </View>

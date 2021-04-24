@@ -9,9 +9,11 @@ import {
     TouchableWithoutFeedback,
     Platform,
     TouchableWithoutFeedbackComponent,
-    Keyboard
+    Keyboard,
+    Alert
 } from 'react-native';
 import { Button } from '../components/Button';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation } from '@react-navigation/native';
 import colors from '../styles/colors';
 
@@ -32,8 +34,18 @@ export const UserIdentification = () => {
         setUser(value)
     }
     
-    function handleStart(){
-        navigation.navigate('Confirmation')
+    async function handleStart(){
+        if(!user)
+            return Alert.alert(`Desculpa, mas preciso saber seu nome pra te deixar passar 😑`)   
+        await AsyncStorage.setItem('@plantmanager:user', user)
+        navigation.navigate('Confirmation', {
+            title: 'Prontinho',
+            subtitle: 'Agora vamos começar a tomar conta das suas plantas com muito cuidado.',
+            buttonTitle: 'Começar',
+            icon: 'smile',
+            nextScreen: 'PlantSelection'
+            }   
+        )
     }
     
     return (
