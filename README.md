@@ -17,12 +17,12 @@ Novo projeto da trilha React Native. Utiliza Expo como sua plataforma de desenvo
 - git clone https://github.com/henriqueTsugiyama/plant-manager.git
 - yarn add ou npm install
 - Dentro de package.json: 
-  -Alter o --host <yourhost> para sua rede local e o --port <apiport> para sua api.
-  -Exemplo: json-server ./src/services/server.json --host 192.168.5.0 --port 3333
+  - Alter o --host <yourhost> para sua rede local e o --port <apiport> para sua api.
+  - Exemplo: json-server ./src/services/server.json --host 192.168.5.0 --port 3333.
+  - Lembrando que sua api e seu comando para o json-server devem estar alinhados.
 - abra uma nova aba de terminal e execute: yarn server
 - yarn start
 
-## Pronto! A partir daí, se todas suas dependencias estiverem instaladas, o expo já estará rodando na sua máquina e só precisa escanear e abrir o app pelo
-## aplicativo da Expo.
+## Pronto! A partir daí, se todas suas dependencias estiverem instaladas, o expo já estará rodando na sua máquina e só precisa escanear e abrir o app pelo aplicativo da Expo.
 
 Lembrando que esse app foi criado sendo testado com um android. Alguns espaçamentos e layouts podem diferenciar um pouco caso esteja realizando o processo de um iphone.
